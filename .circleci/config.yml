@@ -34,11 +34,12 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
-      # Locate Selenium
-      - run: |
-          java -version
-          ps aux
-          sudo find / -name selenium*
+      - run:
+          name: Locate Selenium
+          command: |
+            java -version
+            ps aux
+            sudo find / -name selenium*
       # run tests!
       - run: node test.js
 
