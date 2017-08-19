@@ -37,6 +37,7 @@ jobs:
       # Locate Selenium
       - run: |
           ps aux
+          sudo find / -name selenium*
       # run tests!
       - run: node test.js
 
