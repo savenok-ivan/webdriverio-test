@@ -35,6 +35,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       - run:
+          name: Download and start Selenium
+          command: |
+            curl -O http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.1.jar
+            java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.0.1.jar
+          background: true
+      - run:
           name: Locate Selenium
           command: |
             java -version
