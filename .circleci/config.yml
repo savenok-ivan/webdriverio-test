@@ -60,3 +60,8 @@ jobs:
           path: selenium_log.txt
           destination: selenium
 
+workflows:
+  version: 2
+  selenium_testing:
+    jobs:
+      - build
