@@ -46,7 +46,13 @@ jobs:
             java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.0.1.jar -log selenium.log
           background: true
       
-      - run: node test.js
+      - run:
+          name: Test geckodriver
+          command: node test_geckodriver.js
+
+      - run:
+          name: Tech chromedriver
+          command: node test_chromedriver.js
 
       - run: mv selenium.log selenium_log.txt
 
