@@ -43,13 +43,7 @@ jobs:
           command: |
             java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.0.1.jar
           background: true
-      - run:
-          name: Locate Selenium
-          command: |
-            java -version
-            ps aux
-            sudo find / -name selenium*
-      # run tests!
+     # run tests!
       - run: node test.js
 
 
