@@ -37,6 +37,7 @@ jobs:
       - run:
           name: Start Selenium
           command: |
+            ls -l /usr/local/bin
             java -jar -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver /usr/local/bin/selenium-server-standalone-3.0.1.jar -log selenium.log
           background: true
       
