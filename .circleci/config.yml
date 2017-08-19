@@ -41,12 +41,11 @@ jobs:
       - run:
           name: Start Selenium
           command: |
-            java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.0.1.jar -log selenium.log
+            java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.0.1.jar -log selenium.log.txt
           background: true
       
       - run: node test.js
 
       - store_artifacts:
-          path: selenium.log
-          destination: selenium
+          path: selenium.log.txt
 
