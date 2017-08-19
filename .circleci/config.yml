@@ -8,7 +8,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: drazisil/node-selenium:0.1.21
+      - image: drazisil/node-selenium:0.1.23
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -35,13 +35,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: Start Selenium
-          command: |
-            ls -l /usr/local/bin
-            java -jar -Dwebdriver.gecko.driver=/usr/local/bin/geckodriver /usr/local/bin/selenium-server-standalone-3.0.1.jar -log selenium.log
-          background: true
-      
-      - run:
           name: Test geckodriver
           command: node test_geckodriver.js
 
@@ -49,7 +42,7 @@ jobs:
           name: Tech chromedriver
           command: node test_chromedriver.js
 
-      - run: mv selenium.log selenium_log.txt
+      - run: cp /var/log/selenium.log selenium_log.txt
 
       - store_artifacts:
           path: selenium_log.txt
