@@ -34,6 +34,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
+      # Locate Selenium
+      - run: |
+          ps aux
       # run tests!
       - run: node test.js
 
