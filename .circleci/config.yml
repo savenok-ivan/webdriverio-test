@@ -36,6 +36,7 @@ jobs:
         
       # Locate Selenium
       - run: |
+          java -version
           ps aux
           sudo find / -name selenium*
       # run tests!
