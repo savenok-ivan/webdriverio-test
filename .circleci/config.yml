@@ -47,7 +47,7 @@ jobs:
           name: Tech chromedriver
           command: node test_chromedriver.js
 
-      - run: cp /var/log/selenium.log selenium_log.txt
+      - run: cp selenium.log selenium_log.txt
 
       - store_artifacts:
           path: selenium_log.txt
